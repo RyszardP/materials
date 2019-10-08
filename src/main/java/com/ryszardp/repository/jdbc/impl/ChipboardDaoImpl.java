@@ -4,6 +4,7 @@ import com.ryszardp.domain.materials.Chipboard;
 import com.ryszardp.repository.jdbc.ChipboardDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,7 +70,10 @@ public class ChipboardDaoImpl implements ChipboardDao {
 
     @Override
     public Chipboard findById(Long id) {
-        return null;
+        final String findById = "select * from chipboard where chipboard_id =:chipboardId";
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("chipboardId",id);
+        return  namedParameterJdbcTemplate.queryForObject(findById, params, this::getChipboardRowMapper);
     }
 
     @Override
