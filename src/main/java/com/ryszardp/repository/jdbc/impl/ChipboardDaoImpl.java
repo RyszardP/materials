@@ -17,11 +17,11 @@ import java.util.List;
 @Transactional
 public class ChipboardDaoImpl implements ChipboardDao {
 
-    public static final String MATERIAL_ID = "materialId";
-    public static final String MATERIAL_ARTICLE = "materialArticle";
-    public static final String MATERIAL_NAME = "materialName";
-    public static final String GROUP_NUMBER = "groupNumber";
-    public static final String GROUP_NAME = "groupName";
+    public static final String MATERIAL_ID = "material_id";
+    public static final String MATERIAL_ARTICLE = "material_article";
+    public static final String MATERIAL_NAME = "material_name";
+    public static final String GROUP_NUMBER = "group_number";
+    public static final String GROUP_NAME = "group_name";
     public static final String UNIT = "unit";
     public static final String COST = "cost";
     public static final String COEFFICIENT = "coefficient";
@@ -32,7 +32,7 @@ public class ChipboardDaoImpl implements ChipboardDao {
     public static final String OVERHANG = "overhang";
     public static final String COLOR = "color";
     public static final String TEXTURE = "texture";
-    public static final String MATERIAL_CLASS = "materialClass";
+    public static final String MATERIAL_CLASS = "material_class";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
