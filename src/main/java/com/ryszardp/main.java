@@ -7,6 +7,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.List;
+import java.util.Set;
 
 public class main {
     public static void main(String[] args) {
@@ -15,5 +16,8 @@ public class main {
 
         List<Chipboard> chipboard = chipboardDao.findAll();
         System.out.println(chipboard);
+
+
+
     }
 }
