@@ -1,9 +1,17 @@
 package com.ryszardp.domain.vo;
 
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Objects;
 
+@Entity
 public class Role {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long roleId;
     private Long userId;
     private String roleName;
