@@ -1,9 +1,16 @@
 package com.ryszardp.domain.materials;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "chipboard")
 public class Chipboard {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long materialId;
+
     private String materialArticle;
     private String materialName;
     private String groupNumber;

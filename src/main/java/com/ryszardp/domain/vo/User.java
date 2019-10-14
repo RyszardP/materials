@@ -1,7 +1,5 @@
 package com.ryszardp.domain.vo;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
@@ -11,7 +9,7 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     private String userName;
