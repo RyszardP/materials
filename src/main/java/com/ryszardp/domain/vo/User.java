@@ -2,12 +2,12 @@ package com.ryszardp.domain.vo;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
@@ -21,6 +21,12 @@ public class User {
     private String login;
 
     private String password;
+
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     public User() {
     }
@@ -62,7 +68,6 @@ public class User {
     }
 
 
-
     public void setLogin(String login) {
         this.login = login;
     }
@@ -75,6 +80,22 @@ public class User {
         this.password = password;
     }
 
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -84,12 +105,14 @@ public class User {
                 Objects.equals(userName, user.userName) &&
                 Objects.equals(userSurname, user.userSurname) &&
                 Objects.equals(login, user.login) &&
-                Objects.equals(password, user.password);
+                Objects.equals(password, user.password) &&
+                Objects.equals(passwordConfirm, user.passwordConfirm) &&
+                Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, userName, userSurname, login, password);
+        return Objects.hash(userId, userName, userSurname, login, password, passwordConfirm, roles);
     }
 
     @Override
@@ -100,6 +123,10 @@ public class User {
                 ", userSurname='" + userSurname + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
+                ", passwordConfirm='" + passwordConfirm + '\'' +
+                ", roles=" + roles +
                 '}';
     }
+
+
 }
